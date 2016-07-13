@@ -20,6 +20,5 @@ services:
      - client_web
     volumes:
      - ./nginx/:/etc/nginx/conf.d/
-     - /etc/letsencrypt/:/keys/
     links:
      - server
