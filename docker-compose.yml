@@ -1,13 +1,13 @@
 version: '2'
 services:
   server:
-    image: code-view/server
+    image: codeview/server
     volumes:
      - ./server/local/:/src/code_view/settings/local/
     links:
      - redis
   client_web:
-    image: code-view/client_web
+    image: codeview/client_web
   redis:
     image: redis
     volumes:
