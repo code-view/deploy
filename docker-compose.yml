@@ -1,0 +1,25 @@
+version: '2'
+services:
+  server:
+    image: code-view/server
+    volumes:
+     - ./server/local/:/src/code_view/settings/local/
+    links:
+     - redis
+  client_web:
+    image: code-view/client_web
+  redis:
+    image: redis
+    volumes:
+     - ./redis/:/data/
+  nginx:
+    image: nginx
+    ports:
+     - 80:80
+    volumes_from:
+     - client_web
+    volumes:
+     - ./nginx/:/etc/nginx/conf.d/
+     - /etc/letsencrypt/:/keys/
+    links:
+     - server
