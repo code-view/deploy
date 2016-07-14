@@ -1,3 +1,3 @@
 REDIS_OPTIONS = {'db': 2,
-                 'host': 'redis'}
+                 'address': ('redis', 6379)}
 DEBUG = False
