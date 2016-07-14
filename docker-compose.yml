@@ -16,9 +16,12 @@ services:
     image: nginx
     ports:
      - 80:80
+     - 443:443
     volumes_from:
      - client_web
     volumes:
      - ./nginx/:/etc/nginx/conf.d/
+     - ./letsencrypt/:/letsencrypt/webroot/
+     - /etc/letsencrypt/:/letsencrypt/keys/
     links:
      - server
