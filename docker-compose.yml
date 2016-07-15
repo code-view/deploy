@@ -10,6 +10,7 @@ services:
     image: codeview/client_web
   redis:
     image: redis
+    command: redis-server --appendonly yes
     volumes:
      - ./redis/:/data/
   nginx:
